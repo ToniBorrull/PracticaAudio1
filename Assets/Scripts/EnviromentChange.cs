@@ -12,6 +12,8 @@ public class EnviromentChange : MonoBehaviour
     public AudioMixerSnapshot pubWalla;
     public AudioMixerSnapshot tenseMus;
     public AudioMixerSnapshot japaneseMus;
+    public AudioMixerSnapshot river;
+    public AudioMixerSnapshot ocean;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -32,6 +34,12 @@ public class EnviromentChange : MonoBehaviour
 
         if (other.gameObject.tag == "japanese")
             japaneseMus.TransitionTo(0.5f);
+
+        if (other.gameObject.tag == "river")
+            river.TransitionTo(0.5f);
+
+        if (other.gameObject.tag == "ocean")
+            ocean.TransitionTo(0.5f);
     }
     private void OnTriggerExit(Collider other)
     {
@@ -51,6 +59,12 @@ public class EnviromentChange : MonoBehaviour
             noMusic.TransitionTo(0.5f);
 
         if (other.gameObject.tag == "japanese")
+            noMusic.TransitionTo(0.5f);
+
+        if (other.gameObject.tag == "river")
+            noMusic.TransitionTo(0.5f);
+
+        if (other.gameObject.tag == "ocean")
             noMusic.TransitionTo(0.5f);
     }
 

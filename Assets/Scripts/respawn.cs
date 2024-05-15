@@ -21,6 +21,6 @@ public class respawn : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        SceneManager.LoadScene("DemoDay");
+        SceneManager.LoadScene("AudioExercice");
     }
 }

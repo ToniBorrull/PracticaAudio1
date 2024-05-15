@@ -8,6 +8,7 @@ public class stepsSound : MonoBehaviour
     public AudioClip[] steps;
     public AudioClip[] waterSteps;
     public AudioClip[] stoneSteps;
+    public AudioClip[] woodSteps;
 
     public int type;
 
@@ -33,6 +34,10 @@ public class stepsSound : MonoBehaviour
         if (type == 3)
         {
             StoneStep();
+        }
+        if (type == 4)
+        {
+            WoodStep();
         }
     }
 
@@ -61,6 +66,14 @@ public class stepsSound : MonoBehaviour
         aS.Play();
 
     }
+
+    void WoodStep()
+    {
+        aS.clip = woodSteps[Random.Range(0, woodSteps.Length)];
+        aS.pitch = Random.Range(0.8f, 1.2f);
+        aS.volume = Random.Range(0.8f, 1.2f);
+        aS.Play();
+    }
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("water"))
@@ -70,10 +83,14 @@ public class stepsSound : MonoBehaviour
         if (other.gameObject.CompareTag("grass"))
         {
             type = 1;
-        }if (other.gameObject.CompareTag("stone"))
+        }
+        if (other.gameObject.CompareTag("stone"))
         {
             type = 3;
         }
-
+        if (other.gameObject.CompareTag("wood"))
+        {
+            type = 4;
+        }
     }
 }
